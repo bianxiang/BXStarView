@@ -92,7 +92,7 @@ class BXStarView: UIView {
             let bgImageView = UIImageView(frame: CGRectMake(CGFloat(i-1) * 17.5, (self.frame.height-17.5)/2, 17.5, 17.5))
             bgImageView.image = UIImage(named: BXStarImage.bgImage.rawValue)
             bgImageView.tag = 999
-            self.addSubview(bgImageView)
+            self.insertSubview(bgImageView, atIndex: 0)
         }
     }
     
