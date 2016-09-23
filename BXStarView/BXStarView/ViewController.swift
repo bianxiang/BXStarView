@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bx.starLevel = 2.5
+        bx.starLevel = 0.5
         
 //        bx.starLevel = 3
     }

@@ -46,16 +46,19 @@ class BXStarView: UIView {
                 }
             }
             
-            if starLevel! % 1 == 0.5{
+            if starLevel!.truncatingRemainder(dividingBy: 1) == 0.5{
                 
                 //全星
-                for i in 1...Int(starLevel!) {
-                    let totalImageView = UIImageView(frame: CGRectMake(CGFloat(i-1) * 17.5, (self.frame.height-17.5)/2, 17.5, 17.5))
-                    totalImageView.image = UIImage(named: BXStarImage.totalImage.rawValue)
-                    self.addSubview(totalImageView)
+                if Int(starLevel!) != 0 {
+                    for i in 1...Int(starLevel!) {
+                        let totalImageView = UIImageView(frame: CGRect(x: CGFloat(i-1) * 17.5, y: (self.frame.height-17.5)/2, width: 17.5, height: 17.5))
+                        totalImageView.image = UIImage(named: BXStarImage.totalImage.rawValue)
+                        self.addSubview(totalImageView)
+                    }
                 }
+                
                 //半星
-                let halfImageView = UIImageView(frame: CGRectMake(CGFloat(Int(starLevel!) ) * 17.5, (self.frame.height-17.5)/2, 17.5, 17.5))
+                let halfImageView = UIImageView(frame: CGRect(x: CGFloat(Int(starLevel!) ) * 17.5, y: (self.frame.height-17.5)/2, width: 17.5, height: 17.5))
                 halfImageView.image = UIImage(named: BXStarImage.halfImage.rawValue)
                 self.addSubview(halfImageView)
                 
@@ -63,7 +66,7 @@ class BXStarView: UIView {
             }else {
                 //全星
                 for i in 1...Int(starLevel!) {
-                    let totalImageView = UIImageView(frame: CGRectMake(CGFloat(i-1) * 17.5, (self.frame.height-17.5)/2, 17.5, 17.5))
+                    let totalImageView = UIImageView(frame: CGRect(x: CGFloat(i-1) * 17.5, y: (self.frame.height-17.5)/2, width: 17.5, height: 17.5))
                     totalImageView.image = UIImage(named: BXStarImage.totalImage.rawValue)
                     self.addSubview(totalImageView)
                 }
@@ -89,10 +92,10 @@ class BXStarView: UIView {
     
     func setup() {
         for i in 1...5 {
-            let bgImageView = UIImageView(frame: CGRectMake(CGFloat(i-1) * 17.5, (self.frame.height-17.5)/2, 17.5, 17.5))
+            let bgImageView = UIImageView(frame: CGRect(x: CGFloat(i-1) * 17.5, y: (self.frame.height-17.5)/2, width: 17.5, height: 17.5))
             bgImageView.image = UIImage(named: BXStarImage.bgImage.rawValue)
             bgImageView.tag = 999
-            self.insertSubview(bgImageView, atIndex: 0)
+            self.insertSubview(bgImageView, at: 0)
         }
     }
     
